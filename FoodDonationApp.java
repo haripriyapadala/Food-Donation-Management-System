@@ -5,26 +5,19 @@ import java.util.List;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-// ============================================================================
 // 1. CUSTOM EXCEPTION (Advanced Java)
-// ============================================================================
 class InvalidQuantityException extends Exception {
     public InvalidQuantityException(String message) {
         super(message);
     }
 }
 
-// ============================================================================
 // 2. INTERFACE (OOP: Polymorphism & Contract)
-// ============================================================================
 interface Manageable {
     String getStatus();
     void setStatus(String status);
 }
-
-// ============================================================================
 // 3. ABSTRACT CLASS (OOP: Abstraction)
-// ============================================================================
 abstract class User {
     private String name;
     private String contact;
@@ -39,9 +32,8 @@ abstract class User {
     public abstract String getUserType();
 }
 
-// ============================================================================
+
 // 4. INHERITANCE (OOP: Specialization)
-// ============================================================================
 class Donor extends User {
     private String address;
 
@@ -58,9 +50,8 @@ class Donor extends User {
     }
 }
 
-// ============================================================================
+
 // 5. ENCAPSULATION & DATA MODEL
-// ============================================================================
 class FoodDonation implements Manageable {
     private int id;
     private String donorName;
@@ -95,9 +86,9 @@ class FoodDonation implements Manageable {
     public void setStatus(String status) { this.status = status; }
 }
 
-// ============================================================================
+
 // 6. PERSISTENCE & DATA ACCESS LAYER (JDBC + Collections Fallback)
-// ============================================================================
+
 class DatabaseHandler {
     private static final String DB_URL = "jdbc:sqlite:food_donation.db";
     private boolean isDbAvailable = false;
@@ -189,9 +180,9 @@ class DatabaseHandler {
     public int getNextId() { return idCounter++; }
 }
 
-// ============================================================================
+
 // 7. PRESENTATION LAYER (Java Swing GUI)
-// ============================================================================
+
 public class FoodDonationApp extends JFrame {
     private JTextField txtDonorName, txtContact, txtFoodItem, txtQuantity;
     private JComboBox<String> cmbCategory;
